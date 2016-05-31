@@ -105,13 +105,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // api_homepage
+        // api_rest_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'api_homepage');
+                return $this->redirect($pathinfo.'/', 'api_rest_homepage');
             }
 
-            return array (  '_controller' => 'APIBundle\\Controller\\DefaultController::indexAction',  '_route' => 'api_homepage',);
+            return array (  '_controller' => 'APIRestBundle\\Controller\\DefaultController::indexAction',  '_route' => 'api_rest_homepage',);
         }
 
         // homepage
