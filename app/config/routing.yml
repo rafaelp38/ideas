@@ -1,3 +1,7 @@
+api_rest:
+    resource: "@APIRestBundle/Resources/config/routing.yml"
+    prefix:   /
+
 api:
     resource: "@APIBundle/Resources/config/routing.php"
     prefix:   /
