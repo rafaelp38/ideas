@@ -14,17 +14,6 @@ class CommentController extends Controller
 {
     public function indexAction()
     {
-        try{
-                $idUser = $user->getId();
-                $date = new \DateTime();
-
-                return new JsonResponse($date);
-
-            }else{
-                return new JsonResponse('Erreur');
-            }
-        }catch(Exception $ex) {
-            return new JsonResponse('Erreur');
-        }
+        $em = $this->getDoctrine()->getManager();
     }
 }
