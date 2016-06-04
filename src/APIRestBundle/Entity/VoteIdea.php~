@@ -1,0 +1,43 @@
+<?php
+
+namespace APIRestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * VoteIdea
+ *
+ * @ORM\Table(name="votes_ideas")
+ * @ORM\Entity(repositoryClass="APIRestBundle\Repository\VoteIdeaRepository")
+ */
+class VoteIdea
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="vote_idea_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="vote_idea_positif", type="boolean", length=255)
+     */
+    private $positif;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Idea")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $idea;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $user;
+
+}

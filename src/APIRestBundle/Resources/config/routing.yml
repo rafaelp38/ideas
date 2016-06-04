@@ -1,3 +1,7 @@
 api_rest_homepage:
     path:     /
     defaults: { _controller: APIRestBundle:Default:index }
+
+api_rest_homepage:
+    path:     /test
+    defaults: { _controller: APIRestBundle:User:index }
