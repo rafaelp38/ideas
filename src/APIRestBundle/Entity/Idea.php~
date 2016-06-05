@@ -65,6 +65,15 @@ class Idea
 	*/
 	private $user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="APIRestBundle\Entity\Community", inversedBy="ideas", cascade={"persist"})
+     * @ORM\JoinTable(name="communities_ideas",
+     *      joinColumns={@ORM\JoinColumn(name="community_id", referencedColumnName="community_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="idea_id", referencedColumnName="idea_id")}
+     *      )
+     */
+    private $communities;
+
 
 
     /**
@@ -213,5 +222,45 @@ class Idea
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->community = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add community
+     *
+     * @param \APIRestBundle\Entity\Community $community
+     * @return Idea
+     */
+    public function addCommunity(\APIRestBundle\Entity\Community $community)
+    {
+        $this->community[] = $community;
+
+        return $this;
+    }
+
+    /**
+     * Remove community
+     *
+     * @param \APIRestBundle\Entity\Community $community
+     */
+    public function removeCommunity(\APIRestBundle\Entity\Community $community)
+    {
+        $this->community->removeElement($community);
+    }
+
+    /**
+     * Get community
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommunity()
+    {
+        return $this->community;
     }
 }

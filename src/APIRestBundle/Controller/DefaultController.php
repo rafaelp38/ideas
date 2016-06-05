@@ -21,9 +21,9 @@ class DefaultController extends Controller
         $user->setPassword('toto');
         $user->setPseudo('rafaelp38');
 
-        //$em->persist($user);
+        $em->persist($user);
 
-        //$em->flush();
+        $em->flush();
 
         var_dump($user);
 

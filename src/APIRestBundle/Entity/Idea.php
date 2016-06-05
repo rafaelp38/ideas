@@ -36,9 +36,9 @@ class Idea
 	private $text;
 
 	/**
-	 * @var date
+	 * @var DateTime
 	 *
-	 * @ORM\Column(name="idea_date_depot", type="date", nullable=true)
+	 * @ORM\Column(name="idea_date_depot", type="datetime", nullable=true)
 	*/
 
 	private $dateDepot;
@@ -65,153 +65,24 @@ class Idea
 	*/
 	private $user;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM\ManyToMany(targetEntity="APIRestBundle\Entity\Community", inversedBy="ideas", cascade={"persist"})
+     * @ORM\JoinTable(name="communities_ideas",
+     *      joinColumns={@ORM\JoinColumn(name="idea_id", referencedColumnName="idea_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="community_id", referencedColumnName="community_id")}
+     *      )
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $communities;
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Idea
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
+	/**
+	 * @ORM\OneToMany(targetEntity="APIRestBundle\Entity\VoteIdea", mappedBy="user")
+	 */
+	private $votes;
 
-        return $this;
-    }
+	/**
+	 * @ORM\OneToMany(targetEntity="APIRestBundle\Entity\VoteIdea", mappedBy="idea")
+	 */
+	private $comments;
 
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
 
-    /**
-     * Set text
-     *
-     * @param string $text
-     * @return Idea
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * Get text
-     *
-     * @return string 
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * Set dateDepot
-     *
-     * @param \DateTime $dateDepot
-     * @return Idea
-     */
-    public function setDateDepot($dateDepot)
-    {
-        $this->dateDepot = $dateDepot;
-
-        return $this;
-    }
-
-    /**
-     * Get dateDepot
-     *
-     * @return \DateTime 
-     */
-    public function getDateDepot()
-    {
-        return $this->dateDepot;
-    }
-
-    /**
-     * Set file_pdf
-     *
-     * @param string $filePdf
-     * @return Idea
-     */
-    public function setFilePdf($filePdf)
-    {
-        $this->file_pdf = $filePdf;
-
-        return $this;
-    }
-
-    /**
-     * Get file_pdf
-     *
-     * @return string 
-     */
-    public function getFilePdf()
-    {
-        return $this->file_pdf;
-    }
-
-    /**
-     * Set domaine
-     *
-     * @param \APIRestBundle\Entity\Domaine $domaine
-     * @return Idea
-     */
-    public function setDomaine(\APIRestBundle\Entity\Domaine $domaine = null)
-    {
-        $this->domaine = $domaine;
-
-        return $this;
-    }
-
-    /**
-     * Get domaine
-     *
-     * @return \APIRestBundle\Entity\Domaine 
-     */
-    public function getDomaine()
-    {
-        return $this->domaine;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \APIRestBundle\Entity\User $user
-     * @return Idea
-     */
-    public function setUser(\APIRestBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \APIRestBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

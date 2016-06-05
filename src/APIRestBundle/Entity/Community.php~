@@ -1,0 +1,163 @@
+<?php
+
+namespace APIRestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Community
+ *
+ * @ORM\Table(name="communities")
+ * @ORM\Entity(repositoryClass="APIRestBundle\Repository\CommunityRepository")
+ */
+class Community
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="community_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="community_name", type="string", length=100, unique=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="community_description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="APIRestBundle\Entity\Idea", mappedBy="communities", cascade={"persist"})
+     *
+     */
+    private $ideas;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set string
+     *
+     * @param string $string
+     * @return Community
+     */
+    public function setString($string)
+    {
+        $this->string = $string;
+
+        return $this;
+    }
+
+    /**
+     * Get string
+     *
+     * @return string 
+     */
+    public function getString()
+    {
+        return $this->string;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Community
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idea = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Community
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add idea
+     *
+     * @param \APIRestBundle\Entity\Idea $idea
+     * @return Community
+     */
+    public function addIdea(\APIRestBundle\Entity\Idea $idea)
+    {
+        $this->idea[] = $idea;
+
+        return $this;
+    }
+
+    /**
+     * Remove idea
+     *
+     * @param \APIRestBundle\Entity\Idea $idea
+     */
+    public function removeIdea(\APIRestBundle\Entity\Idea $idea)
+    {
+        $this->idea->removeElement($idea);
+    }
+
+    /**
+     * Get idea
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIdea()
+    {
+        return $this->idea;
+    }
+}

@@ -24,99 +24,20 @@ class VoteIdea
     /**
      * @var bool
      *
-     * @ORM\Column(name="vote_idea_positif", type="boolean", length=255)
+     * @ORM\Column(name="vote_idea_positif", type="boolean")
      */
     private $positif;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Idea")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\Idea", inversedBy="ideas")
+     * @ORM\JoinColumn(nullable=false, name="idea_id", referencedColumnName="idea_id")
     */
     private $idea;
 
     /**
-     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\User", inversedBy="votes")
+     * @ORM\JoinColumn(nullable=false, name="user_id", referencedColumnName="user_id")
     */
     private $user;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set positif
-     *
-     * @param boolean $positif
-     * @return VoteIdea
-     */
-    public function setPositif($positif)
-    {
-        $this->positif = $positif;
-
-        return $this;
-    }
-
-    /**
-     * Get positif
-     *
-     * @return boolean 
-     */
-    public function getPositif()
-    {
-        return $this->positif;
-    }
-
-    /**
-     * Set idea
-     *
-     * @param \OC\PlatformBundle\Entity\Idea $idea
-     * @return VoteIdea
-     */
-    public function setIdea(\OC\PlatformBundle\Entity\Idea $idea)
-    {
-        $this->idea = $idea;
-
-        return $this;
-    }
-
-    /**
-     * Get idea
-     *
-     * @return \OC\PlatformBundle\Entity\Idea 
-     */
-    public function getIdea()
-    {
-        return $this->idea;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \OC\PlatformBundle\Entity\User $user
-     * @return VoteIdea
-     */
-    public function setUser(\OC\PlatformBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \OC\PlatformBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }
