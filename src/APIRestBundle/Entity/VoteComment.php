@@ -40,4 +40,83 @@ class VoteComment
      */
     private $user;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set positif
+     *
+     * @param boolean $positif
+     * @return VoteComment
+     */
+    public function setPositif($positif)
+    {
+        $this->positif = $positif;
+
+        return $this;
+    }
+
+    /**
+     * Get positif
+     *
+     * @return boolean 
+     */
+    public function getPositif()
+    {
+        return $this->positif;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param \APIRestBundle\Entity\Comment $comment
+     * @return VoteComment
+     */
+    public function setComment(\APIRestBundle\Entity\Comment $comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \APIRestBundle\Entity\Comment 
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \APIRestBundle\Entity\User $user
+     * @return VoteComment
+     */
+    public function setUser(\APIRestBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \APIRestBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
