@@ -1,0 +1,13 @@
+{% extends "APIRestBundle::layout.html.twig" %}
+
+{% block title %}
+    Add User - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+
+    {{ include("APIRestBundle:User:form.html.twig") }}
+    
+
+{% endblock %}

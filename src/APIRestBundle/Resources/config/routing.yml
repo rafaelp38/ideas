@@ -28,3 +28,7 @@ api_rest_delete:
     defaults:  { _controller: APIRestBundle:Idea:delete }
     requirements:
         id: \d+
+
+api_rest_addUser:
+    path:      /addUser
+    defaults:  { _controller: APIRestBundle:User:add }
