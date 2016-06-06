@@ -1,0 +1,15 @@
+{# src/APIRestBundle/Resources/views/User/login.html.twig #}
+
+{% extends "APIRestBundle::layout.html.twig" %}
+
+{% block title %}
+    Add User - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    <h3>Connexion</h3>
+
+    {{ include("APIRestBundle:User:form.html.twig") }}
+
+
+{% endblock %}
