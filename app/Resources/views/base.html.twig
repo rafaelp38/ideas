@@ -17,8 +17,11 @@
     <div id="header" class="jumbotron">
         <h1>Ma plateforme d'idées</h1>
         <p>
-            <a class="btn btn-primary btn-lg" href="">
+            <a class="btn btn-primary btn-lg" href="{{ path('api_rest_login') }}">
                 Connexion
+            </a>
+            <a class="btn btn-primary btn-lg" href="{{ path('api_rest_signup') }}">
+                Inscription
             </a>
         </p>
     </div>

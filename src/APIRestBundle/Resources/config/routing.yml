@@ -33,3 +33,11 @@ api_rest_delete:
 api_rest_addUser:
     path:      /addUser
     defaults:  { _controller: APIRestBundle:User:add }
+
+api_rest_login:
+    path: /login
+    defaults: { _controller: APIRestBundle:User:login }
+
+api_rest_signup:
+    path: /signup
+    defaults: { _controller: APIRestBundle:User:signup }
