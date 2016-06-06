@@ -1,3 +1,15 @@
+themes:
+    resource: "@ThemesBundle/Resources/config/routing.yml"
+    prefix:   /thethemes
+
+community:
+    resource: "@CommunityBundle/Resources/config/routing.yml"
+    prefix:   /thecommunities
+
+ideas:
+    resource: "@IdeasBundle/Resources/config/routing.yml"
+    prefix:   /theideas
+
 api_rest:
     resource: "@APIRestBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,25 @@
+{# src/CommunityBundle/Resources/views/Default/listCommunities.html.twig #}
+
+{% extends "CommunityBundle::index.html.twig" %}
+
+{% block title %}
+    Liste de Communautés - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    <h3>Les Communautés</h3>
+
+    {% for community in listCommunity %}
+        <li>
+            <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+                {{ advert.title }}
+            </a>
+            par {{ advert.author }},
+            le {{ advert.date|date('d/m/Y') }}
+        </li>
+    {% else %}
+        <li>Pas (encore !) d'idées</li>
+    {% endfor %}
+
+
+{% endblock %}

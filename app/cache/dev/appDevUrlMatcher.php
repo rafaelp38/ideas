@@ -105,6 +105,36 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/the')) {
+            // themes_homepage
+            if (rtrim($pathinfo, '/') === '/thethemes') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'themes_homepage');
+                }
+
+                return array (  '_controller' => 'ThemesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'themes_homepage',);
+            }
+
+            // community_homepage
+            if (rtrim($pathinfo, '/') === '/thecommunities') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'community_homepage');
+                }
+
+                return array (  '_controller' => 'CommunityBundle\\Controller\\DefaultController::indexAction',  '_route' => 'community_homepage',);
+            }
+
+            // ideas_homepage
+            if (rtrim($pathinfo, '/') === '/theideas') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ideas_homepage');
+                }
+
+                return array (  '_controller' => 'IdeasBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ideas_homepage',);
+            }
+
+        }
+
         // api_rest_home
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

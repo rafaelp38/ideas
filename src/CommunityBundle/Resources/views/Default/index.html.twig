@@ -1,0 +1,16 @@
+{# src/APIRestBundle/Resources/views/layout.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    Les Communautés {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+    {% block ocplatform_body %}
+    {% endblock %}
+
+{% endblock %}
