@@ -139,6 +139,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'APIRestBundle\\Controller\\UserController::addAction',  '_route' => 'api_rest_addUser',);
         }
 
+        // api_rest_login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'APIRestBundle\\Controller\\UserController::loginAction',  '_route' => 'api_rest_login',);
+        }
+
+        // api_rest_signup
+        if ($pathinfo === '/signup') {
+            return array (  '_controller' => 'APIRestBundle\\Controller\\UserController::signupAction',  '_route' => 'api_rest_signup',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
