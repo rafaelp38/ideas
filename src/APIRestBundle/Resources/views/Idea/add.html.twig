@@ -1,0 +1,21 @@
+{% extends "APIRestBundle::layout.html.twig" %}
+
+{% block title %}
+    Modifier une annonce - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+    <h2>Ajouter une idée</h2>
+
+    {{ include("APIRestBundle:Idea:form.html.twig") }}
+
+    <p>
+        Vous créez une nouvelle idée, bravo, vous êtes un génie!.
+    </p>
+
+    <p>
+
+    </p>
+
+{% endblock %}

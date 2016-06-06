@@ -105,13 +105,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // api_rest_homepage
+        // api_rest_home
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'api_rest_homepage');
+                return $this->redirect($pathinfo.'/', 'api_rest_home');
             }
 
-            return array (  '_controller' => 'APIRestBundle\\Controller\\DefaultController::indexAction',  '_route' => 'api_rest_homepage',);
+            return array (  '_controller' => 'APIRestBundle\\Controller\\IdeaController::indexAction',  'page' => 1,  '_route' => 'api_rest_home',);
+        }
+
+        // api_rest_view
+        if (0 === strpos($pathinfo, '/idea') && preg_match('#^/idea/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_rest_view')), array (  '_controller' => 'APIRestBundle\\Controller\\IdeaController::viewAction',));
+        }
+
+        // api_rest_add
+        if ($pathinfo === '/add') {
+            return array (  '_controller' => 'APIRestBundle\\Controller\\IdeaController::addAction',  '_route' => 'api_rest_add',);
+        }
+
+        // api_rest_edit
+        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_rest_edit')), array (  '_controller' => 'APIRestBundle\\Controller\\IdeaController::editAction',));
+        }
+
+        // api_rest_delete
+        if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_rest_delete')), array (  '_controller' => 'APIRestBundle\\Controller\\IdeaController::deleteAction',));
         }
 
         // homepage

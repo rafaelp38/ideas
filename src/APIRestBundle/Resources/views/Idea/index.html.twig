@@ -1,0 +1,25 @@
+{% extends "APIRestBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+    <h2>Liste des idées</h2>
+
+    <ul>
+        {% for idea in listIdeas %}
+            <li>
+                <a href="{{ path('api_rest_view', {'id': idea.id}) }}">
+                    {{ idea.title }}
+                </a>
+                par {{ idea.user.nom }},
+                le {{ idea.dateDepot|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore !) d'idées</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

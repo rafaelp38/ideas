@@ -1,7 +1,30 @@
-api_rest_homepage:
-    path:     /
-    defaults: { _controller: APIRestBundle:Default:index }
 
-api_rest_homepage:
-    path:     /test
-    defaults: { _controller: APIRestBundle:User:index }
+
+
+api_rest_home:
+    path:      /
+    defaults:  { _controller: APIRestBundle:Idea:index, page: 1 }
+    requirements:
+        page: \d*
+
+api_rest_view:
+    path:      /idea/{id}
+    defaults:  { _controller: APIRestBundle:Idea:view }
+    requirements:
+        id: \d+
+
+api_rest_add:
+    path:      /add
+    defaults:  { _controller: APIRestBundle:Idea:add }
+
+api_rest_edit:
+    path:      /edit/{id}
+    defaults:  { _controller: APIRestBundle:Idea:edit }
+    requirements:
+        id: \d+
+
+api_rest_delete:
+    path:      /delete/{id}
+    defaults:  { _controller: APIRestBundle:Idea:delete }
+    requirements:
+        id: \d+

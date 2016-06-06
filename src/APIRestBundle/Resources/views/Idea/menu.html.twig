@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked">
+    {% for idea in listIdeas %}
+        <li>
+            <a href="{{ path('api_rest_view', {'id': idea.id}) }}">
+                {{ idea.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

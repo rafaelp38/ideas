@@ -1,0 +1,25 @@
+{% extends "APIRestBundle::layout.html.twig" %}
+
+{% block title %}
+    Modifier une annonce - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+    <h2>Modifier une idée</h2>
+
+    {{ include("APIRestBundle:Idea:form.html.twig") }}
+
+    <p>
+        Vous éditez une idée déjà existante, merci de ne pas changer
+        l'esprit générale de l'idée déjà publiée.
+    </p>
+
+    <p>
+        <a href="{{ path('api_rest_view', {'id': idea.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à l'idée
+        </a>
+    </p>
+
+{% endblock %}
