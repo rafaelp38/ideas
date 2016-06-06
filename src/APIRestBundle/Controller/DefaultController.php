@@ -2,6 +2,7 @@
 
 namespace APIRestBundle\Controller;
 
+use APIRestBundle\Entity\Domaine;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use APIRestBundle\Entity\User;
 
@@ -12,7 +13,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        /*$user = new User();
+        $user = new User();
         $user2 = new User();
         $user3 = new User();
 
@@ -37,16 +38,28 @@ class DefaultController extends Controller
         $user3->setPassword('Nico');
         $user3->setPseudo('Laios');
 
-        //$em->persist($user);
+
+        $em->persist($user);
         $em->persist($user2);
         $em->persist($user3);
 
-        $em->flush();*/
 
-        //var_dump($user);
+        $domain = new Domaine();
+        $domain2 = new Domaine();
+        $domain3 = new Domaine();
+
+        $domain->setLibelle('Informatique');
+        $domain2->setLibelle('Moto');
+        $domain3->setLibelle('Voiture');
+
+        $em->persist($domain);
+        $em->persist($domain2);
+        $em->persist($domain3);
+
+        $em->flush();
 
 
-        $repository = $this
+        /*$repository = $this
             ->getDoctrine()
             ->getManager()
             ->getRepository('APIRestBundle:User')
@@ -54,16 +67,14 @@ class DefaultController extends Controller
 
         $listUsers = $repository->findAll();
 
-        //var_dump($listUsers);
+        var_dump($listUsers);
 
-        /*foreach ($listUsers as $user) {
+        foreach ($listUsers as $user) {
             // $advert est une instance de Idea
             echo $user->getContent();
         }*/
 
-        return $this->render('APIRestBundle:Default:index.html.twig', array(
-            'listUsers'           => $listUsers
-        ));
+        return $this->render('APIRestBundle:Default:index.html.twig');
 
 
     }

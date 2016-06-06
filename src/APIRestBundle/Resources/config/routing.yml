@@ -1,5 +1,6 @@
-
-
+api_rest_insertBdd:
+    path:      /insertBdd
+    defaults:  { _controller: APIRestBundle:Default:index }
 
 api_rest_home:
     path:      /

@@ -43,4 +43,83 @@ class CommunityUser
 
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set isAdmin
+     *
+     * @param boolean $isAdmin
+     * @return CommunityUser
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Get isAdmin
+     *
+     * @return boolean 
+     */
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * Set community
+     *
+     * @param \APIRestBundle\Entity\Community $community
+     * @return CommunityUser
+     */
+    public function setCommunity(\APIRestBundle\Entity\Community $community)
+    {
+        $this->community = $community;
+
+        return $this;
+    }
+
+    /**
+     * Get community
+     *
+     * @return \APIRestBundle\Entity\Community 
+     */
+    public function getCommunity()
+    {
+        return $this->community;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \APIRestBundle\Entity\User $user
+     * @return CommunityUser
+     */
+    public function setUser(\APIRestBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \APIRestBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

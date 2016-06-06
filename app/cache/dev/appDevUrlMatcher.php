@@ -105,6 +105,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // api_rest_insertBdd
+        if ($pathinfo === '/insertBdd') {
+            return array (  '_controller' => 'APIRestBundle\\Controller\\DefaultController::indexAction',  '_route' => 'api_rest_insertBdd',);
+        }
+
         // api_rest_home
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

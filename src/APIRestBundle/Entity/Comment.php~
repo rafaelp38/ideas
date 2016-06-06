@@ -108,4 +108,90 @@ class Comment
     {
         return $this->date;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->votes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set idea
+     *
+     * @param \APIRestBundle\Entity\Idea $idea
+     * @return Comment
+     */
+    public function setIdea(\APIRestBundle\Entity\Idea $idea)
+    {
+        $this->idea = $idea;
+
+        return $this;
+    }
+
+    /**
+     * Get idea
+     *
+     * @return \APIRestBundle\Entity\Idea 
+     */
+    public function getIdea()
+    {
+        return $this->idea;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \APIRestBundle\Entity\User $user
+     * @return Comment
+     */
+    public function setUser(\APIRestBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \APIRestBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add votes
+     *
+     * @param \APIRestBundle\Entity\VoteIdea $votes
+     * @return Comment
+     */
+    public function addVote(\APIRestBundle\Entity\VoteIdea $votes)
+    {
+        $this->votes[] = $votes;
+
+        return $this;
+    }
+
+    /**
+     * Remove votes
+     *
+     * @param \APIRestBundle\Entity\VoteIdea $votes
+     */
+    public function removeVote(\APIRestBundle\Entity\VoteIdea $votes)
+    {
+        $this->votes->removeElement($votes);
+    }
+
+    /**
+     * Get votes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
 }

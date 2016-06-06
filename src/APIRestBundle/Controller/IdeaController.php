@@ -61,8 +61,6 @@ class IdeaController extends Controller
 
         $idea = $repository->find($id);
 
-        var_dump($idea);
-
 
         return $this->render('APIRestBundle:Idea:view.html.twig', array(
             'idea' => $idea
@@ -147,7 +145,7 @@ class IdeaController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        $em->remove($idea.id);
+        $em->remove($idea);
 
         // Pour persister le changement dans la relation, il faut persister l'entité propriétaire
         // Ici, Advert est le propriétaire, donc inutile de la persister car on l'a récupérée depuis Doctrine
@@ -158,7 +156,7 @@ class IdeaController extends Controller
 
         // Ici, on récupérera l'annonce correspondant à $id
         // Ici, on gérera la suppression de l'annonce en question
-        return $this->render('APIRestBundle:Idea:view.html.twig');
+        return $this->render('APIRestBundle:Idea:delete.html.twig');
     }
 
 }
