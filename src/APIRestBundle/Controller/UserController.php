@@ -108,7 +108,7 @@ class UserController extends Controller
         $form = $formBuilder->getForm();
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('APIRestBundle:Idea:add.html.twig', array(
+        return $this->render('APIRestBundle:User:add.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -129,7 +129,7 @@ class UserController extends Controller
         $form = $formBuilder->getForm();
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
-        return $this->render('APIRestBundle:Idea:add.html.twig', array(
+        return $this->render('APIRestBundle:User:login.html.twig', array(
             'form' => $form->createView(),
         ));
     }

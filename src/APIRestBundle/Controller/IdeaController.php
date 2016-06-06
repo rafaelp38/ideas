@@ -60,7 +60,7 @@ class IdeaController extends Controller
         ;
 
         $idea = $repository->find($id);
-
+        
 
         return $this->render('APIRestBundle:Idea:view.html.twig', array(
             'idea' => $idea
