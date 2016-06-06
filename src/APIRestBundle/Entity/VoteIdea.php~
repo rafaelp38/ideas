@@ -40,4 +40,83 @@ class VoteIdea
     */
     private $user;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set positif
+     *
+     * @param boolean $positif
+     * @return VoteIdea
+     */
+    public function setPositif($positif)
+    {
+        $this->positif = $positif;
+
+        return $this;
+    }
+
+    /**
+     * Get positif
+     *
+     * @return boolean 
+     */
+    public function getPositif()
+    {
+        return $this->positif;
+    }
+
+    /**
+     * Set idea
+     *
+     * @param \APIRestBundle\Entity\Idea $idea
+     * @return VoteIdea
+     */
+    public function setIdea(\APIRestBundle\Entity\Idea $idea)
+    {
+        $this->idea = $idea;
+
+        return $this;
+    }
+
+    /**
+     * Get idea
+     *
+     * @return \APIRestBundle\Entity\Idea 
+     */
+    public function getIdea()
+    {
+        return $this->idea;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \APIRestBundle\Entity\User $user
+     * @return VoteIdea
+     */
+    public function setUser(\APIRestBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \APIRestBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

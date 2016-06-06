@@ -14,7 +14,7 @@
                 <a href="{{ path('api_rest_view', {'id': idea.id}) }}">
                     {{ idea.title }}
                 </a>
-                par {{ idea.user.nom }},
+                par {{ idea.user.nom }} {{ idea.user.prenom }},
                 le {{ idea.dateDepot|date('d/m/Y') }}
             </li>
         {% else %}

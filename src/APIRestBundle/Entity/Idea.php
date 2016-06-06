@@ -52,7 +52,7 @@ class Idea
 	/**
 	 * @var int
 	 *
-	 * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\Domaine", cascade={"persist", "remove"})
+	 * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\Domaine", cascade={"persist"})
      * @ORM\JoinColumn(name="domaine_id", referencedColumnName="domaine_id")
     */
 	private $domaine;
@@ -60,7 +60,7 @@ class Idea
 	/**
 	 * @var int
 	 *
-	 * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\User", cascade={"persist","remove"})
+	 * @ORM\ManyToOne(targetEntity="APIRestBundle\Entity\User", cascade={"persist"})
  	 * @ORM\JoinColumn(nullable=false, name="user_id", referencedColumnName="user_id")
 	*/
 	private $user;

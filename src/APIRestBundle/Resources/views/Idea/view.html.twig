@@ -8,6 +8,8 @@
 
     <h2>{{ idea.title }}</h2>
     <i>Par {{ idea.user.nom }} {{ idea.user.prenom }}, le {{ idea.dateDepot|date('d/m/Y à H:i') }}</i>
+    <br>
+    <b>Catégorie :</b> {{ idea.domaine.libelle }}
 
     <div class="well">
         {{ idea.text }}

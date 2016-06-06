@@ -105,6 +105,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+<<<<<<< HEAD
         if (0 === strpos($pathinfo, '/the')) {
             // themes_homepage
             if (rtrim($pathinfo, '/') === '/thethemes') {
@@ -133,6 +134,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'IdeasBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ideas_homepage',);
             }
 
+=======
+        // api_rest_insertBdd
+        if ($pathinfo === '/insertBdd') {
+            return array (  '_controller' => 'APIRestBundle\\Controller\\DefaultController::indexAction',  '_route' => 'api_rest_insertBdd',);
+>>>>>>> refs/remotes/origin/master
         }
 
         // api_rest_home
